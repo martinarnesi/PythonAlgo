@@ -1,9 +1,12 @@
 def binary_search(list, item):
     low = 0
     high = len(list) - 1
+    count = 1
 
     while low <= high:
-        mid = (low + high)
+        print("Step:" + str(count))
+        count += 1
+        mid = round((low + high) / 2)
         guess = list[mid]
         if guess == item:
             return mid
@@ -13,7 +16,11 @@ def binary_search(list, item):
             low = mid + 1
     return None
 
+def create_array(number):
+    return list(range(1,number))
+
 
 if __name__ == '__main__':
-    my_list = [1, 3, 5, 7, 9]
-    print(binary_search(my_list, 5))
+    #Divide and Conquer O(Log n)
+    my_list = create_array(9999)
+    print('Found at position:' + str(binary_search(my_list, 3454)))
